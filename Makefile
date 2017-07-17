@@ -6,6 +6,8 @@ remove:
 
 .PHONY: install
 install: remove
+	apt install -y python-pip
+	pip install flask
 	cp ${CURDIR}/defaults /etc/default/health
 	cp ${CURDIR}/health.service /lib/systemd/system/health.service
 	mkdir -p /etc/flask
