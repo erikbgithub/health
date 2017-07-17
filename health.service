@@ -1,0 +1,11 @@
+[Unit]
+Description=/healthz and /statusz output
+Requires=network.target
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/health
+ExecStart=/usr/local/bin/flask run -h $FLASK_HOST -p $FLASK_PORT $FLASK_PARAMS
+
+[Install]
+WantedBy=multi-user.target
